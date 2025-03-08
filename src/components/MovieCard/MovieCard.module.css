@@ -1,12 +1,5 @@
 .cardWrapper {
   /* max-width: calc((100% - (3 * 4px)) / 4); */
-
-  padding: 1.5rem 1rem;
-  min-width: 280px;
-  /* aspect-ratio: 340 / 310; */
-
-  border-radius: 1rem;
-  background-color: white;
 }
 
 .cardItem {
@@ -16,8 +9,10 @@
   max-width: 100%;
 }
 
-.coverWrapper {
+.coverImage {
   aspect-ratio: 2 / 3;
+  object-fit: contain;
+  max-height: 250px;
   width: 166px;
   display: flex;
   margin: 0 auto;
@@ -31,16 +26,10 @@
   transition-duration: 200ms;
 }
 
-.coverWrapper:hover {
+.coverImage:hover {
   box-shadow: rgba(76, 76, 80, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   translate: 0 -0.5rem;
-}
-
-.coverImage {
-  aspect-ratio: 2 / 3;
-  object-fit: contain;
-  max-height: 250px;
 }
 
 .movieTitle {

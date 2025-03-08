@@ -17,7 +17,6 @@ export function SearchBar({ onSearch }) {
 
     // У протилежному випадку викликаємо пропс
     // і передаємо йому значення поля
-
     onSearch(queryValue);
     form.reset();
   };

@@ -15,7 +15,7 @@ export const getTrendingMovies = async () => {
     "/trending/movie/day?language=en-US",
     options
   );
-  console.log("getTrendingMovies:", data);
+  // console.log("getTrendingMovies:", data);
   return data;
 };
 
@@ -24,25 +24,25 @@ export const getByQuery = async (query, page = 1) => {
     `search/movie?query=${query}&page=${page}`,
     options
   );
-  console.log("getByQuery:", data);
+  // console.log("getByQuery:", data);
   return data;
 };
 
 export const getMovieByID = async (movie_id) => {
   const { data } = await axios.get(`movie/${movie_id}`, options);
-  console.log("getMovieByID:", data);
+  // console.log("getMovieByID:", data);
   return data;
 };
 
 export const getMovieCast = async (movie_id) => {
   const { data } = await axios.get(`movie/${movie_id}/credits`, options);
-  console.log("getMovieCast:", data);
+  // console.log("getMovieCast:", data);
   return data;
 };
 
 export const getMovieReviews = async (movie_id) => {
   const { data } = await axios.get(`movie/${movie_id}/reviews`, options);
-  console.log("getMovieReviews:", data);
+  // console.log("getMovieReviews:", data);
   return data;
 };
 

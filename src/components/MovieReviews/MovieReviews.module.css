@@ -1,0 +1,30 @@
+.reviewCard {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.cardHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.userDetails {
+}
+
+.reviewAuthor {
+  font-weight: 700;
+}
+
+.reviewText {
+}

@@ -6,5 +6,16 @@
 }
 
 .movieCard {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  width: 300px;
   flex-grow: 1;
+
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.link {
+  width: 100%;
 }

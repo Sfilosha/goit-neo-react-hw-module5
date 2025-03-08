@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Message from "../components/Message/Message.jsx";
 import Loader from "../components/Loader/Loader.jsx";
 import MoviesGallery from "../components/MoviesGallery/MoviesGallery.jsx";
-import LoadMore from "../components/LoadMore/LoadMore.jsx";
 
 export function MoviesPage() {
   const [queryValue, setQueryValue] = useState("");
@@ -14,7 +13,6 @@ export function MoviesPage() {
   const [nothingFound, setNothingFound] = useState(false);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState(false);
-  const [loadMore, setLoadMore] = useState(false);
 
   // Location
   const location = useLocation();
@@ -28,7 +26,6 @@ export function MoviesPage() {
     setQueryValue(query);
     setPage(1);
     setMoviesList([]);
-    setLoadMore(false);
     setSearchParams({ search: query });
     // setLoadMoreClicked(false);
   };
@@ -47,28 +44,12 @@ export function MoviesPage() {
 
         // Робимо запит та рендеримо галерею
         const fetchResult = await getByQuery(queryValue, page);
-        console.log(fetchResult);
         setMoviesList((prevImg) => [...prevImg, ...fetchResult.results]);
 
         if (fetchResult.results.length === 0) {
           setNothingFound(true);
           return;
         }
-
-        // Прибираємо Load More якщо результатів менше ніж perPage та якщо остання сторінка
-        // fetchResult.results.length < perPage
-        //   ? setLoadMore(false)
-        //   : setLoadMore(true);
-        page < fetchResult.total_pages ? setLoadMore(true) : setLoadMore(false);
-
-        // Скролл по кліку на Load More із затримкою 250ms
-        // if (isLoadMoreClicked) {
-        //   setTimeout(() => {
-        //     const item = refImage.current.getBoundingClientRect();
-        //     // console.log("ImageCard item is:", item);
-        //     window.scrollBy({ top: item.height * 3, behavior: "smooth" });
-        //   }, 250);
-        // }
       } catch (error) {
         console.error(error);
         setError(true);
@@ -104,7 +85,6 @@ export function MoviesPage() {
             }
           />
         )}
-        {loadMore && <LoadMore />}
       </section>
     </main>
   );

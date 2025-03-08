@@ -1,0 +1,26 @@
+.castList {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.castCard {
+  width: 200px;
+}
+.castImage {
+  min-width: 120px;
+  border-radius: 0.5rem;
+  aspect-ratio: 2 / 3;
+  background-color: rgba(0, 0, 0, 0.088);
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+.castName {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+.castRole {
+  text-align: center;
+  font-size: 0.75rem;
+}

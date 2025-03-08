@@ -3,6 +3,8 @@ import { getMovieByID } from "../api.js";
 import { useParams, useLocation, Outlet, Link } from "react-router-dom";
 import { BackLink } from "../components/BackLink/BackLink.jsx";
 import MovieDetailsCard from "../components/MovieDetailsCard/MovieDetailsCard.jsx";
+import MovieAdditionalCard from "../components/MovieAdditionalCard/MovieAdditionalCard.jsx";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -25,22 +27,12 @@ function MovieDetailsPage() {
   return (
     <main>
       <section className="container">
-        <BackLink link={backLinkRef}>Back to movies</BackLink>
-        <img src="https://via.placeholder.com/960x240" alt="" />
-        <h2>
-          movie - {movieDetails.original_title} - {movieId}
-        </h2>
-        <br></br>
+        <BackLink link={backLinkRef}>
+          <ArrowBackIosIcon />
+          Back
+        </BackLink>
         <MovieDetailsCard details={movieDetails} />
-        <Link className="link" to="cast">
-          Cast
-        </Link>
-        <Link className="link" to="reviews">
-          Reviews
-        </Link>
-        <Suspense fallback={<div>Loading subpage...</div>}>
-          <Outlet />
-        </Suspense>
+        <MovieAdditionalCard />
       </section>
     </main>
   );

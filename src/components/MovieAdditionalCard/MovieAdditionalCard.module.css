@@ -1,0 +1,25 @@
+.linksWrapper {
+  display: ;
+  margin-bottom: 2rem;
+}
+
+.link {
+  display: inline-flex;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  color: inherit;
+}
+
+.link:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: inherit;
+}
+
+.active,
+.active:hover {
+  background: #fff;
+  box-shadow: 2px 3px 0px 0px #000;
+  color: inherit;
+}
