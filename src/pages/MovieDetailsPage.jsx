@@ -8,11 +8,11 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
-  // console.log("movieID is: ", movieId);
   const [movieDetails, setMovieDetails] = useState([]);
 
   const location = useLocation();
-  const backLinkRef = location.state ?? "/movies";
+  const backLinkRef = location.state ?? "/";
+  // console.log(location.state);
 
   useEffect(() => {
     if (!movieId) return;
@@ -32,7 +32,7 @@ function MovieDetailsPage() {
           Back
         </BackLink>
         <MovieDetailsCard details={movieDetails} />
-        <MovieAdditionalCard />
+        <MovieAdditionalCard link={location.state} />
       </section>
     </main>
   );
