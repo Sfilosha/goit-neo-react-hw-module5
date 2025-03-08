@@ -1,0 +1,155 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #e8e8e8;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* #region Reset CSS */
+
+body {
+  font-family: var(--main-font);
+  color: var(--cl-text);
+  background-color: var(--cl-white);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+il,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  color: var(--cl-dark);
+  font-size: 36px;
+  letter-spacing: 0.02em;
+  line-height: 1.11;
+}
+
+h3 {
+  color: var(--cl-dark);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+  display: inline-block;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  color: currentColor;
+  background-color: inherit;
+  border: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* #endregion Reset CSS*/
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} */
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
