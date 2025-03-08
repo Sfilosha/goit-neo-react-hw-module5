@@ -8,7 +8,6 @@ import MoviesGallery from "../components/MoviesGallery/MoviesGallery.jsx";
 
 export function MoviesPage() {
   const [queryValue, setQueryValue] = useState("");
-  const [page, setPage] = useState(1);
   const [moviesList, setMoviesList] = useState([]);
   const [nothingFound, setNothingFound] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -24,41 +23,39 @@ export function MoviesPage() {
 
   const handleSearch = (query) => {
     setQueryValue(query);
-    setPage(1);
     setMoviesList([]);
     setSearchParams({ search: query });
-    // setLoadMoreClicked(false);
   };
 
   useEffect(() => {
-    // Check if there is a search query saved
-    search ? setQueryValue(search) : null;
-    // Check if there is a queryValue
-    if (!queryValue) return;
+    if (!search) return;
+    setQueryValue(search);
+  }, [search]);
 
-    const fetching = async () => {
-      try {
-        setError(false);
-        setLoader(true);
-        setNothingFound(false);
+  const fetching = async (query) => {
+    if (!query) return;
+    try {
+      setError(false);
+      setLoader(true);
+      setNothingFound(false);
 
-        // Робимо запит та рендеримо галерею
-        const fetchResult = await getByQuery(queryValue, page);
-        setMoviesList((prevImg) => [...prevImg, ...fetchResult.results]);
+      const fetchResult = await getByQuery(query); // Використовуй query
+      setMoviesList((prevImg) => [...prevImg, ...fetchResult.results]);
 
-        if (fetchResult.results.length === 0) {
-          setNothingFound(true);
-          return;
-        }
-      } catch (error) {
-        console.error(error);
-        setError(true);
-      } finally {
-        setLoader(false);
+      if (fetchResult.results.length === 0) {
+        setNothingFound(true);
       }
-    };
-    fetching();
-  }, [queryValue, page]);
+    } catch (error) {
+      console.error(error);
+      setError(true);
+    } finally {
+      setLoader(false);
+    }
+  };
+
+  useEffect(() => {
+    fetching(queryValue); //
+  }, [queryValue]);
 
   return (
     <main>
