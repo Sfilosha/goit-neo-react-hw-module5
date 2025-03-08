@@ -38,6 +38,7 @@
 }
 
 .coverImage {
+  aspect-ratio: 2 / 3;
   object-fit: contain;
   max-height: 250px;
 }

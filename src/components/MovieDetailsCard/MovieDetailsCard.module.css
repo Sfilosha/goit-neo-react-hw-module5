@@ -1,0 +1,55 @@
+.id {
+  font-size: 0.75rem;
+  color: grey;
+  margin-bottom: 0.5rem;
+}
+.cartWrapper {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.coverWrapper {
+}
+.coverImage {
+  max-width: 240px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: rgba(76, 76, 80, 0.25) 0px 7px 29px 0px;
+}
+.detailsWrapper {
+  padding: 2rem;
+  flex-grow: 1;
+
+  background-color: white;
+  border-radius: 1rem;
+}
+.movieTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.movieSubtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: grey;
+  margin-bottom: 1rem;
+}
+.movieScore {
+  margin-bottom: 1rem;
+}
+.movieOverivew {
+  max-width: 440px;
+  margin-bottom: 2rem;
+}
+
+.genresWrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+.movieGenre {
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+}

@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { SearchBar } from "../components/SearchBar/SearchBar.jsx";
 import { getByQuery } from "../api.js";
 import { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import Loader from "../components/Loader/Loader.jsx";
 import MoviesGallery from "../components/MoviesGallery/MoviesGallery.jsx";
 import LoadMore from "../components/LoadMore/LoadMore.jsx";
 
-export default function Movies() {
+export function MoviesPage() {
   const [queryValue, setQueryValue] = useState("");
   const [page, setPage] = useState(1);
   const [moviesList, setMoviesList] = useState([]);
@@ -16,15 +16,27 @@ export default function Movies() {
   const [error, setError] = useState(false);
   const [loadMore, setLoadMore] = useState(false);
 
+  // Location
+  const location = useLocation();
+
+  // Search Params
+  const [searchParams, setSearchParams] = useSearchParams();
+  const search = searchParams.get("search");
+  // console.log("searchParams: ", search);
+
   const handleSearch = (query) => {
     setQueryValue(query);
     setPage(1);
     setMoviesList([]);
     setLoadMore(false);
+    setSearchParams({ search: query });
     // setLoadMoreClicked(false);
   };
 
   useEffect(() => {
+    // Check if there is a search query saved
+    search ? setQueryValue(search) : null;
+    // Check if there is a queryValue
     if (!queryValue) return;
 
     const fetching = async () => {
@@ -72,7 +84,12 @@ export default function Movies() {
       <section className="container">
         <SearchBar onSearch={handleSearch} />
         {loader && <Loader />}
-        {moviesList.length > 0 && <MoviesGallery movies={moviesList} />}
+        {moviesList.length > 0 && (
+          <MoviesGallery
+            movies={moviesList}
+            location={`${location.pathname}${location.search}`}
+          />
+        )}
         {nothingFound && (
           <Message
             title={"Nothing found"}
@@ -92,3 +109,5 @@ export default function Movies() {
     </main>
   );
 }
+
+export default MoviesPage;

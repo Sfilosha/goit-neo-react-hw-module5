@@ -34,4 +34,22 @@ export const getMovieByID = async (movie_id) => {
   return data;
 };
 
-export default { getTrendingMovies, getByQuery, getMovieByID };
+export const getMovieCast = async (movie_id) => {
+  const { data } = await axios.get(`movie/${movie_id}/credits`, options);
+  console.log("getMovieCast:", data);
+  return data;
+};
+
+export const getMovieReviews = async (movie_id) => {
+  const { data } = await axios.get(`movie/${movie_id}/reviews`, options);
+  console.log("getMovieReviews:", data);
+  return data;
+};
+
+export default {
+  getTrendingMovies,
+  getByQuery,
+  getMovieByID,
+  getMovieCast,
+  getMovieReviews,
+};
