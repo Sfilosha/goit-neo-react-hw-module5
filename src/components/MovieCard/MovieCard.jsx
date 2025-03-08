@@ -2,7 +2,8 @@ import React from "react";
 import css from "./MovieCard.module.css";
 
 function MovieCard({ data: { poster_path, original_title, release_date } }) {
-  const defaultImg = "src/images/emptystate@2x.jpg";
+  const defaultImg =
+    "https://cdn.pixabay.com/photo/2017/01/25/17/35/camera-2008489_1280.png";
 
   return (
     <>
